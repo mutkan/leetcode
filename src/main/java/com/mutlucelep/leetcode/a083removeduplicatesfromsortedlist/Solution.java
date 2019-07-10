@@ -24,11 +24,11 @@ import com.mutlucelep.leetcode.utils.list.ListNode;
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode current = head;
-        while (current != null && current.getNext() != null) {
-            if (current.getNext().getVal() == current.getVal()) {
-                current.setNext(current.getNext().getNext());
+        while (current != null && current.next != null) {
+            if (current.next.val == current.val) {
+                current.next = (current.next.next);
             } else {
-                current = current.getNext();
+                current = current.next;
             }
         }
         return head;
