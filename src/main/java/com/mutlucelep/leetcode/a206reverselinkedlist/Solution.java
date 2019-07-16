@@ -21,6 +21,7 @@ import com.mutlucelep.leetcode.utils.list.ListNode;
  */
 
 public class Solution {
+    //Iterative solution
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode cur = head;
@@ -33,5 +34,29 @@ public class Solution {
             cur = next;
         }
         return prev;
+    }
+
+    //Recursive solution 1
+    public ListNode reverseList(ListNode curr){
+        if(curr == null){
+            return null;
+        } else if(curr.next == null){
+            return curr;
+        }else{
+            ListNode nextNode = curr.next;
+            curr.next = null;
+            ListNode rest = reverseList(nextNode);
+            nextNode.next = curr;
+            return rest;
+        }
+    }
+
+    //Recursive solution 2
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode p = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
     }
 }
