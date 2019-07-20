@@ -35,4 +35,32 @@ public class SolutionTest {
     }
 
 
+    @Test
+    public void testFirstUniqueChar_AnotherSol_1() {
+        String s = "leetcode";
+        int expected = 0;
+        int actual = solution.firstUniqCharAnotherSol(s);
+
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testFirstUniqueChar_AnotherSol_2() {
+        String s = "loveleetcode";
+        int expected = 2;
+        int actual = solution.firstUniqCharAnotherSol(s);
+
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testFirstUniqueChar_AnotherSol_3() {
+        String s = "lll";
+        int expected = -1;
+        int actual = solution.firstUniqCharAnotherSol(s);
+
+        assertEquals(actual, expected);
+    }
+
+
 }
