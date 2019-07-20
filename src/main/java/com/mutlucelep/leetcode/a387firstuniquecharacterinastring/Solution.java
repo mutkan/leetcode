@@ -34,7 +34,7 @@ class Solution {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             int count = 0;
-            if(linkedMap.get(c)!=null){
+            if (linkedMap.get(c) != null) {
                 count = linkedMap.get(c);
             }
             linkedMap.put(c, count + 1);
@@ -48,5 +48,23 @@ class Solution {
         }
 
         return firstChar == '0' ? -1 : s.indexOf(firstChar);
+    }
+
+
+    public int firstUniqCharAnotherSol(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if(map.get(s.charAt(i))==1){
+                return i;
+            }
+        }
+        return -1;
     }
 }
